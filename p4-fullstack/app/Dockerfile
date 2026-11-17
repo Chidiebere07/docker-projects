@@ -2,6 +2,7 @@ FROM node:20
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
-COPY . .
+COPY --chown=node:node . .
 EXPOSE 3000
+USER node
 CMD ["node", "server.js"]
